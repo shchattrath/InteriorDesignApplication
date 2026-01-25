@@ -14,7 +14,7 @@ def main():
     input_image = Path("data/input/MyRoomExample.png")
 
     # Design prompt describing the desired changes
-    prompt = "night time, ambient lighting, lamps on"
+    prompt = "room layout, floor plan, interior layout, top-down, black white"
 
     # Optional: Additional parameters for fine-tuning
     # Note: Google Gemini doesn't use these parameters, control is via prompt

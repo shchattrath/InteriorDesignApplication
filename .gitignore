@@ -38,6 +38,8 @@ data/input/*
 data/output/*
 !data/input/.gitkeep
 !data/output/.gitkeep
+!data/input/MyRoomExample.png
+!data/output/MyRoomExample_GeneratedFloorPlan.png
 
 # OS
 .DS_Store
