@@ -18,7 +18,7 @@ The hope is that this delivers an easy to control method for prototyping small c
 
 | Original Image | Generated Floor Plan |
 |----------------|----------------------|
-| ![Original Room](data\examples\MyRoomExample.png) | ![Generated Floor Plan](data\examples\MyRoomExample_GeneratedFloorPlan.png) |
+| ![Original Room](data/examples/MyRoomExample.png) | ![Generated Floor Plan](data/examples/MyRoomExample_GeneratedFloorPlan.png) |
 
 *Prompt: "room layout, floor plan, interior layout, top-down, black white"*
 
@@ -41,7 +41,7 @@ This didn't lead to satisfying results & the item placement was completely off.
 
 | Original Image | Layout with Marker | Item to Place | Final Output |
 |----------------|-------------------|---------------|--------------|
-| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data\examples\bad\removingpieces\MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data\examples\bad\incorrectplacement\MyRoomExample_with_ExampleChair_placed.jpg) |
+| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data/examples/bad/removingpieces/MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data/examples/bad/incorrectplacement/MyRoomExample_with_ExampleChair_placed.jpg) |
 
 * Prompt: "facing towards camera"
 
@@ -49,7 +49,7 @@ I then thought about maybe passing the red dot localization through a image to t
 
 | Original Image | Layout with Marker | Item to Place | Final Output |
 |----------------|-------------------|---------------|--------------|
-| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data\examples\bad\removingpieces\MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data\examples\bad\removingpieces\MyRoomExample_with_ExampleChairErrorBefore.jpg) |
+| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data/examples/bad/removingpieces/MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data/examples/bad/removingpieces/MyRoomExample_with_ExampleChairErrorBefore.jpg) |
 
 * Prompt: "facing towards camera"
 
