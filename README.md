@@ -18,9 +18,42 @@ The hope is that this delivers an easy to control method for prototyping small c
 
 | Original Image | Generated Floor Plan |
 |----------------|----------------------|
-| ![Original Room](data/input/MyRoomExample.png) | ![Generated Floor Plan](data/output/MyRoomExample_GeneratedFloorPlan.png) |
+| ![Original Room](data\examples\MyRoomExample.png) | ![Generated Floor Plan](data\examples\MyRoomExample_GeneratedFloorPlan.png) |
 
 *Prompt: "room layout, floor plan, interior layout, top-down, black white"*
+
+
+## Implementation Notes
+
+Daily development journal tracking progress, learnings, and challenges.
+
+---
+
+### 1/25/2026 Updates
+
+**Early Implementation Takeaways:**
+
+I messed around with the "visual prompting" idea to get some more insight.
+
+I was initially prompting with just 3 images & prompt (1. base image, 2. item, 3. layout with red dot to signify location, and lastly a text prompt describing orientation)
+
+This didn't lead to satisfying results & the item placement was completely off. 
+
+| Original Image | Layout with Marker | Item to Place | Final Output |
+|----------------|-------------------|---------------|--------------|
+| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data\examples\bad\removingpieces\MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data\examples\bad\incorrectplacement\MyRoomExample_with_ExampleChair_placed.jpg) |
+
+* Prompt: "facing towards camera"
+
+I then thought about maybe passing the red dot localization through a image to text pipeline to better describe location & it worked well. While it theoretically defeats the point of even having the interactive layout layer in the first place, I found that this is a great way to work around having to manually pinpoint the *exact* place you'd like to reference in words. The output still has issues (the coffee table is removed, potentially since theres no real room for the chair to be placed with it still there)
+
+| Original Image | Layout with Marker | Item to Place | Final Output |
+|----------------|-------------------|---------------|--------------|
+| ![Original Room](data/examples/MyRoomExample.png) | ![Floor Plan with Red Dot](data\examples\bad\removingpieces\MyRoomExample_GeneratedFloorPlan_WithRedDot.png) | ![Chair](data/examples/ExampleChair.png) | ![Result](data\examples\bad\removingpieces\MyRoomExample_with_ExampleChairErrorBefore.jpg) |
+
+* Prompt: "facing towards camera"
+
+---
 
 ### Install Dependencies
 
