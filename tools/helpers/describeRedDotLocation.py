@@ -10,7 +10,7 @@ from src.config import Config
 def describe_red_dot_location(
     original_room_path: str,
     layout_with_dot_path: str,
-    model: str = "gemini-2.0-flash-exp"
+    model: str = "gemini-2.0-flash"
 ):
     """
     Analyze the red dot on a layout and describe its location in natural language.
@@ -51,21 +51,23 @@ I have two images:
 2. FLOOR PLAN WITH RED DOT: A top-down floor plan/layout of the same room with a RED DOT marking a specific location (second image)
 
 Your task:
-Analyze the RED DOT position on the floor plan (image 2) and describe EXACTLY where this location is in the actual room (image 1).
+Analyze the RED DOT position on the floor plan (image 2) and describe EXACTLY where that spot appears **as seen in the photograph** (image 1).
 
-Provide a clear, detailed description of the location that includes:
-- Position relative to walls (center, left side, right side, near back wall, near front, etc.)
-- Position relative to major furniture or features visible in the room
-- Distance from key landmarks (e.g., "2 feet from the couch", "next to the coffee table")
-- Any other spatial context that would help precisely locate this spot
+IMPORTANT — describe the location relative to the camera's frame of the photograph:
+- Use directional terms as they appear in the photo: "left side of the frame", "right side of the frame", "centre of the image", "foreground", "background", etc.
+- Reference visible furniture or features by their position in the photo (e.g., "just to the left of the couch visible in the centre of the frame").
+- Give a sense of depth: is the spot in the foreground (close to the camera), mid-ground, or background (far wall)?
+- If near a wall or surface, say which wall as it appears in the photo (e.g., "against the back wall", "along the right-hand wall").
 
-Format your response as a single, clear sentence or short paragraph describing the location.
-Do NOT mention the red dot itself in your description - only describe the physical location in the room.
+Do NOT use abstract compass directions (north/south/east/west).
+Do NOT mention the red dot, the floor plan, or the layout — only describe the physical location as seen in the room photograph.
+
+Format your response as a single, clear sentence or short paragraph.
 
 Example good responses:
-- "In the center of the room, directly in front of the couch and about 3 feet from the coffee table"
-- "In the left corner near the window, against the wall beside the bookshelf"
-- "To the right of the dining table, about 2 feet from the wall"
+- "In the foreground, slightly left of centre, on the open floor between the camera and the sofa"
+- "Against the back wall on the right side of the frame, between the bookshelf and the window"
+- "In the mid-ground on the left side of the frame, next to the armchair"
 
 Your location description:"""
 
@@ -108,7 +110,7 @@ def main():
     parser.add_argument(
         "-m", "--model",
         help="Gemini model to use for vision analysis",
-        default="gemini-2.0-flash-exp"
+        default="gemini-2.0-flash"
     )
 
     args = parser.parse_args()
